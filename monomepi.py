@@ -13,6 +13,8 @@ import animation as a
 #CLEAR_CMD = '9'
 #LED_ROW_CMD = '4'
 #LED_COL_CMD = '5'
+
+# BEGIN 128-compat
 LED_ON_CMD = '10'
 LED_OFF_CMD = '11'
 KEY_DN = '00'
@@ -20,6 +22,8 @@ KEY_UP = '01'
 CLEAR_CMD = '12'
 LED_ROW_CMD = '15'
 LED_COL_CMD = '16'
+# END 128-compat
+
 TICK = 0.01
 
 
@@ -82,7 +86,8 @@ class Monome(object):
             self.ser.write(binascii.unhexlify(cmd))
 
     def set_all(self, state):
-        self.ser.write(binascii.unhexlify(CLEAR_CMD + str(state)))
+        #self.ser.write(binascii.unhexlify(CLEAR_CMD + str(state)))
+		self.ser.write(binascii.unhexlify(CLEAR_CMD))	#128-compat
 
     def read_keys(self):
         out_string = binascii.hexlify(self.ser.read(2))
@@ -121,12 +126,14 @@ class Monome(object):
         self.keyin['y'] = ''
 
     def set_row(self, hexrow, hexdata):
-        cmd = LED_ROW_CMD + hexrow + hexdata
-        self.ser.write(binascii.unhexlify(cmd))
+        #cmd = LED_ROW_CMD + hexrow + hexdata
+		cmd = LED_ROW_CMD + '0' + hexrow + hexdata	# 128-compat
+		self.ser.write(binascii.unhexlify(cmd))
 
     def set_col(self, hexcol, hexdata):
-        cmd = LED_COL_CMD + hexcol + hexdata
-        self.ser.write(binascii.unhexlify(cmd))
+        # cmd = LED_COL_CMD + hexcol + hexdata
+		cmd = LED_COL_CMD + '0' + hexcol + hexdata	#128-compat
+		self.ser.write(binascii.unhexlify(cmd))
 
     def is_off(self):
         if '1' in self.led_state:
