@@ -6,13 +6,20 @@ import animation as a
 
 
 # Hex values
-LED_ON_CMD = '20'
-LED_OFF_CMD = '30'
+#LED_ON_CMD = '20'
+#LED_OFF_CMD = '30'
+#KEY_DN = '00'
+#KEY_UP = '10'
+#CLEAR_CMD = '9'
+#LED_ROW_CMD = '4'
+#LED_COL_CMD = '5'
+LED_ON_CMD = '10'
+LED_OFF_CMD = '11'
 KEY_DN = '00'
-KEY_UP = '10'
-CLEAR_CMD = '9'
-LED_ROW_CMD = '4'
-LED_COL_CMD = '5'
+KEY_UP = '01'
+CLEAR_CMD = '12'
+LED_ROW_CMD = '15'
+LED_COL_CMD = '16'
 TICK = 0.01
 
 

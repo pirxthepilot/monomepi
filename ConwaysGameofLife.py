@@ -105,7 +105,7 @@ def gameOfLife(instance):
         
 
 
-joon = m.Monome('COM3', 115200)
+joon = m.Monome('COM6', 115200)
 joon.open_serial()
 
 gameOfLife(joon)

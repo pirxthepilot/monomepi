@@ -21,7 +21,7 @@ class TwitterScroll(LedScroller):
 
 
 
-monome = TwitterScroll('COM3')
+monome = TwitterScroll('COM6')
 # Declare pressable buttons
 buttons = [ Button(monome, 0, 7, 'toggle', 0.04),
             Button(monome, 1, 7, 'trigger'),

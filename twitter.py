@@ -10,11 +10,11 @@ from time import time
 from os import urandom
 from collections import OrderedDict
 
-BEARER_TOKEN=
-CONSUMER_KEY=
-CONSUMER_SECRET=
-TOKEN=
-TOKEN_SECRET=
+BEARER_TOKEN=''
+CONSUMER_KEY=''
+CONSUMER_SECRET=''
+TOKEN=''
+TOKEN_SECRET=''
 QCOUNT=30
 QINTERVAL=240
 
