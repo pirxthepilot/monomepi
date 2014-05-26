@@ -57,20 +57,20 @@ class Monome(object):
     def get_led(self, x, y):
         assert(isinstance(x, str))
         assert(isinstance(y, str))
-        state = self.led_state[int(str(y)+str(x),8)]
+        state = self.led_state[int(str(y)+'0'+str(x)+'0',8)]
         return state
 
     def set_led(self, state, x, y, light_feedback=True):
         s = ''
         if state == LED_ON_CMD: s = '1'
         if state == LED_OFF_CMD: s = '0'
-        self.led_state[int(str(y)+str(x),8)] = s
+        self.led_state[int(str(y)+'0'+str(x)+'0',8)] = s
         if light_feedback:
-            cmd = state + str(x) + str(y)
+            cmd = state + str(x)+'0' + str(y)+'0'
             self.ser.write(binascii.unhexlify(cmd))
 
     def set_led_nostate(self, state, x, y):     # Only set the light but not actual state
-        cmd = state + str(x) + str(y)
+        cmd = state + str(x)+'0' + str(y)+'0'
         self.ser.write(binascii.unhexlify(cmd))
 
     def set_via_buffer(self, led_buffer):
@@ -149,8 +149,8 @@ class Button(object):
 
     def __init__(self, monome_instance, x, y, buttontype, speed=0):
         self.monome_instance = monome_instance
-        self.x = str(x)
-        self.y = str(y)
+        self.x = str(x)+'0'
+        self.y = str(y)+'0'
         assert(buttontype == 'none' or
                buttontype == 'toggle' or
                buttontype == 'trigger' or
