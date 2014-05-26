@@ -25,9 +25,11 @@ def simpleToggle(instance):
             break
 
 
-tests = m.Monome('COM3', 115200)
+tests = m.Monome('COM6', 115200)
 tests.open_serial()
 
+print "Ahoy"
+time.sleep(3)
 #simpleTrigger(tests)
 #while True:
 #    tests.read_keys()
