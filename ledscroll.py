@@ -134,7 +134,7 @@ def matrix_rotate(matrix):
 
 
 if __name__=="__main__":
-    Scroller = LedScroller('COM3')
+    Scroller = LedScroller('COM6')
     Scroller.open_serial()
     while True:
         text = raw_input("Enter text: ")
@@ -144,5 +144,6 @@ if __name__=="__main__":
         Scroller.push_msg(text)
         Scroller.start_scroll()
         Scroller.flush_all_msgs()
+    Scroller.call_exit()
     Scroller.close_serial()
     

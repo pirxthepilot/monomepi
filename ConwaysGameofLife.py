@@ -110,4 +110,5 @@ joon.open_serial()
 
 gameOfLife(joon)
 
+#joon.call_exit()
 joon.close_serial()

@@ -23,6 +23,7 @@ def start_animation(inst):
     for i in range(len(randset)):
         inst.set_col(str(randset[i]), '00')
         time.sleep(0.1)
+    inst.set_all(0)
 
 
 def end_animation(inst):
